@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
-const homeRoutes = require('./homeRoutes');
+const htmlRoutes = require('./htmlRoutes');
 
 // http://localhost:5002
-router.use('/', homeRoutes);
+router.use('/', htmlRoutes);
 // http://localhost:5002/api
 router.use('/api', apiRoutes);
 
