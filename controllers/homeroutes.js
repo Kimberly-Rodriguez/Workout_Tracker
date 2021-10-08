@@ -1,6 +1,7 @@
+const router = require('express').Router();
+const { Post, User, Comment } = require('../models');
+// const withAuth = require('../utils/auth');
 
-
-// connect routes to index.js
 
 db.Library.create({ name: "Campus Library" })
 .then(dbLibrary => {
