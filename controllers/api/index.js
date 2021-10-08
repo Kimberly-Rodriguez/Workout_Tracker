@@ -38,6 +38,18 @@ router.post('/api/workouts', (req,res) => {
     res.json(err)
   })
 })
+// http://localhost:5002/api/workouts/range`
+router.get('/api/workouts/range`', (req, res) => {
+  Workout.aggregate([
+    {$addFields: {totalDuration: { $sum: "$exercises.duration"} } },
+  ])
+  .then(userData => {
+    res.json(userData);
+  })
+  .catch(err => {
+    res.json(err)
+  });
+  });
 
 
 module.exports = router;
