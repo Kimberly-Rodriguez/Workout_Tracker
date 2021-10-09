@@ -32,7 +32,7 @@ router.get('/api/workouts', (req, res) => {
   // http://localhost:5002/api/workouts
   router.post('/api/workouts', (req,res) => {
     Workout.create({})
-    .then(useData => {
+    .then(userData => {
       res.json(userData);
     })
     .catch(err => {
@@ -40,7 +40,7 @@ router.get('/api/workouts', (req, res) => {
     })
   })
   // http://localhost:5002/api/workouts/range`
-  router.get('/api/workouts/range`', (req, res) => {
+  router.get('/api/workouts/range', (req, res) => {
     Workout.aggregate([
       {$addFields: {totalDuration: { $sum: "$exercises.duration"} } },
     ])
