@@ -36,7 +36,7 @@ The user can:
 
 ![webimage](public/img/dashboard.png)
 
-[Site link](https://salty-dusk-96734.herokuapp.com/)
+[Site link](https://intense-sierra-76167.herokuapp.com/)
 
 ## Tools
 
