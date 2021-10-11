@@ -4,7 +4,7 @@ const { Workout } = require('../../models');
 
 
 // http://localhost:5002/api/workouts
-router.get('/api/workouts', (req, res) => {
+router.get('/', (req, res) => {
   Workout.aggregate([
     {$addFields: {totalDuration: { $sum: "$exercises.duration"} } },
   ])
@@ -17,7 +17,7 @@ router.get('/api/workouts', (req, res) => {
   });
   
   // http://localhost:5002/api/workouts/(id/number)
-  router.put('/api/workouts/:id', ({body, params}, res) => {
+  router.put('/:id', ({body, params}, res) => {
     Workout.findByIdAndUpdate(params.id, {
       $push: {exercises: body}
       })
@@ -30,7 +30,7 @@ router.get('/api/workouts', (req, res) => {
   });
   
   // http://localhost:5002/api/workouts
-  router.post('/api/workouts', (req,res) => {
+  router.post('/', (req,res) => {
     Workout.create({})
     .then(userData => {
       res.json(userData);
@@ -40,7 +40,7 @@ router.get('/api/workouts', (req, res) => {
     })
   })
   // http://localhost:5002/api/workouts/range`
-  router.get('/api/workouts/range', (req, res) => {
+  router.get('/range', (req, res) => {
     Workout.aggregate([
       {$addFields: {totalDuration: { $sum: "$exercises.duration"} } },
     ])
